@@ -1,0 +1,145 @@
+<!--
+## Introduction
+
+This sample showcases how to build a product page in AMP HTML.
+-->
+<!-- -->
+<!doctype html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+  <title>Product Page</title>
+    <meta name="amp-experiment-token" content="HfmyLgNLmblRg3Alqy164Vywr">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+    <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+    <script async custom-element="amp-image-lightbox" src="https://cdn.ampproject.org/v0/amp-image-lightbox-0.1.js"></script>
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+
+    <link rel="canonical" href="https://amp.dev/documentation/examples/e-commerce/product_page/index.html">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+    
+
+    
+    .tabButton.h4.ampstart-nav-item {
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    
+    .ampTabContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tabButton {
+        list-style: none;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+    }
+
+    amp-selector [option][selected] {
+      outline: #fff;
+    }
+
+    .tabContent {
+        line-height: 1.5rem;
+        display: none;
+        width: 100%;
+        order: 1; /* must be greater than the order of the tab buttons to flex to the next line */
+    }
+
+    .tabButton[selected]::after {
+      content: '';
+      display: block;
+      height: 4px;
+      background: linear-gradient(90deg,#94103e 0,#db004d);
+    }
+
+    .tabButton[selected]+.tabContent {
+        display: block;
+    }
+
+    
+
+    </style>
+
+    <!-- ## Metadata -->
+    <!-- The page indexing requires schema.org markup for one of the following types: Type, AggregateRating, Offers. [Learn more](https://developers.google.com/structured-data/carousels/top-stories#markup_specification). -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "Product",
+        "name": "Apple",
+        "image": "https://amp.dev/static/samples/img/golden_apple1_1024x682.jpg",
+        "description": "Lorem ipsum",
+        "mpn": "925872",
+        "brand": {
+            "@type": "Fruit",
+            "name": "Apple"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.4",
+            "reviewCount": "88"
+        },
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "1.99",
+            "priceValidUntil": "2020-11-05",
+            "itemCondition": "http://schema.org/UsedCondition",
+            "availability": "http://schema.org/InStock",
+            "seller": {
+                "@type": "Retail",
+                "name": "AMP by Example"
+            }
+        }
+    }
+    </script>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    </head>
+    <body>
+
+
+    <!-- ## Tab panels -->
+    <!-- Use `amp-selector` styled as tab panels to add additional data about your product.
+    Learn how to implement tabs in AMP [here](/documentation/examples/style-layout/tab_panels_with_amp-selector/). -->
+  <amp-selector role="tablist"
+  layout="container"
+  class="ampTabContainer ampstart-headerbar-nav" keyboard-select-mode="select">
+  <div role="tab"
+    class="tabButton h4 ampstart-nav-item"
+    selected
+    option="a">ABOUT</div>
+  <div role="tabpanel"
+      class="tabContent p1 p">Fruit is rich in vitamins and minerals. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+  <div role="tab"
+    class="tabButton h4 ampstart-nav-item"
+    option="b">SPECS</div>
+  <div role="tabpanel"
+    class="tabContent p1 p">Always wash fruit before eating. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+  <div role="tab"
+      class="tabButton h4 ampstart-nav-item"
+      option="c">SIZE</div>
+  <div role="tabpanel"
+      class="tabContent p1 p">Size may vary. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+</amp-selector>
+
+   
+    
+    </body>
+</html>
